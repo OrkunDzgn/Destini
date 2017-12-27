@@ -57,6 +57,18 @@
                                     <action selector="buttonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="KQm-Ae-W9M"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMu-9S-Mzf">
+                                <rect key="frame" x="102" y="450" width="171" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.98355044786699541" green="1" blue="0.98154486808179775" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Restart Game">
+                                    <color key="titleColor" red="0.20359574050000001" green="0.2006162906" blue="0.2065751904" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="9Sf-Ge-GyW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="Erf-gv-fGo" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="48o-b2-ESo"/>
@@ -73,6 +85,7 @@
                     </view>
                     <connections>
                         <outlet property="bottomButton" destination="YYD-qC-cgr" id="oTr-dl-hKK"/>
+                        <outlet property="restartButton" destination="dMu-9S-Mzf" id="XJq-uw-UCh"/>
                         <outlet property="storyTextView" destination="amk-E0-c5D" id="TU8-d8-Hye"/>
                         <outlet property="topButton" destination="vvl-q8-Oxh" id="JU6-sG-47c"/>
                     </connections>

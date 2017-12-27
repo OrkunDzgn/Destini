@@ -32,6 +32,7 @@ class ViewController: UIViewController {
     // UI Elements linked to the storyboard
     @IBOutlet weak var topButton: UIButton!// Has TAG = 1
     @IBOutlet weak var bottomButton: UIButton!      // Has TAG = 2
+    @IBOutlet weak var restartButton: UIButton! // TAG 3
     @IBOutlet weak var storyTextView: UILabel!
     
     var questionLevel : Int = 0
@@ -40,19 +41,27 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if questionLevel == 0{
-            storyTextView.text = story1
-            topButton.setTitle("\(answer1a)", for: .normal)
-            bottomButton.setTitle("\(answer1b)", for: .normal)
-        }
-        
+        loadGame()
+    }
+    
+    func loadGame(){
+        restartButton.isHidden = true
+        topButton.isHidden = false
+        bottomButton.isHidden = false
+        questionLevel = 0
+        storyTextView.text = story1
+        topButton.setTitle("\(answer1a)", for: .normal)
+        bottomButton.setTitle("\(answer1b)", for: .normal)
     }
 
     
     @IBAction func buttonPressed(_ sender: UIButton) {
         print(sender.tag)
         questionLevel += 1
+        
+        if sender.tag == 3 { //restart game
+            loadGame()
+        }
        
         if questionLevel == 1 {
             if sender.tag == 1 {
@@ -77,25 +86,38 @@ class ViewController: UIViewController {
             else if sender.tag == 2 {
                 storyTextView.text = story5
             }
-            questionLevel += 1
             topButton.isHidden = true
             bottomButton.isHidden = true
+            restartButton.isHidden = false
         } else if questionLevel == 2 && path == "right" {
             if sender.tag == 1 {
+                storyTextView.text = story3
+                topButton.setTitle("\(answer3a)", for: .normal)
+                bottomButton.setTitle("\(answer3b)", for: .normal)
+                path = "left"
+            }
+            else if sender.tag == 2 {
+                storyTextView.text = story4
+                topButton.isHidden = true
+                bottomButton.isHidden = true
+                restartButton.isHidden = false
+            }
+        } else if questionLevel == 3 && path == "left" {
+            if sender.tag == 1 {
                 storyTextView.text = story6
+                topButton.isHidden = true
+                bottomButton.isHidden = true
+                restartButton.isHidden = false
             }
             else if sender.tag == 2 {
                 storyTextView.text = story5
+                topButton.isHidden = true
+                bottomButton.isHidden = true
+                restartButton.isHidden = false
             }
         }
-                
-        // TODO Step 6: Modify the IF-Statement to complete the story
         
-    
     }
-    
-
-
 
 }
 
